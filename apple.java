@@ -15,5 +15,19 @@ public class apple extends Actor
     public void act()
     {
         // Add your action code here.
+        fall();
+        if(elephant.getX() == getX() && elephant.getY() == getY())
+        {
+            
+        }
+    }
+    
+    public void fall()
+    {
+        
+        int x = getX();
+        int y = getY();
+        y++;
+        setLocation(x, y);
     }
 }
