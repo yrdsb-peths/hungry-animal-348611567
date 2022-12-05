@@ -16,9 +16,11 @@ public class apple extends Actor
     {
         // Add your action code here.
         fall();
-        if(elephant.getX() == getX() && elephant.getY() == getY())
+        myWorld world = (myWorld) getWorld();
+        if(getY() >= world.getHeight())
         {
-            
+            world.gameOver();
+            world.removeObject(this);
         }
     }
     

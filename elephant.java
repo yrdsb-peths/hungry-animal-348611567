@@ -16,6 +16,7 @@ public class elephant extends Actor
     {
         // Add your action code here.
         move();
+        eat();
     }
     
     public void move()
@@ -24,20 +25,31 @@ public class elephant extends Actor
         int y = getY();
         if(Greenfoot.isKeyDown("W"))
         {
-            y--;
+            y -= 2;
         }
         if(Greenfoot.isKeyDown("A"))
         {
-            x--;
+            x -=2 ;
         }
         if(Greenfoot.isKeyDown("S"))
         {
-            y++;
+            y+= 2;
         }
         if(Greenfoot.isKeyDown("D"))
         {
-            x++;
+            x+= 2;
         }
         setLocation(x, y);
+    }
+    
+    public void eat()
+    {
+        if(isTouching(apple.class))
+        {
+            removeTouching(apple.class);
+            myWorld world = (myWorld) getWorld();
+            world.createApple();
+            world.increaseScore();
+        }
     }
 }
