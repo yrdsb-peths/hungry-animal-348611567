@@ -12,11 +12,29 @@ public class elephant extends Actor
      * Act - do whatever the elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootImage[] idle = new GreenfootImage[8];
+    
+    public elephant()
+    {
+        for(int i = 0; i <0; i++)
+        {
+            idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+        }
+        setImage(idle[0]);
+    }
+    
+    int imageIndex = 0;
+    public void animateElephant()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
+    
     public void act()
     {
         // Add your action code here.
         move();
-        eat();
     }
     
     public void move()
@@ -40,6 +58,9 @@ public class elephant extends Actor
             x+= 2;
         }
         setLocation(x, y);
+        
+        eat();
+        animateElephant();
     }
     
     public void eat()
@@ -50,6 +71,7 @@ public class elephant extends Actor
             myWorld world = (myWorld) getWorld();
             world.createApple();
             world.increaseScore();
+            elephantSound.play();
         }
     }
 }
