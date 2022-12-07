@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class apple extends Actor
+public class Apple extends Actor
 {
     /**
      * Act - do whatever the apple wants to do. This method is called whenever
@@ -16,7 +16,7 @@ public class apple extends Actor
     {
         // Add your action code here.
         fall();
-        myWorld world = (myWorld) getWorld();
+        MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())
         {
             world.gameOver();

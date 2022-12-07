@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class myWorld extends World
+public class MyWorld extends World
 {
     public int score = 0;
     Label scoreLabel;
@@ -14,7 +14,7 @@ public class myWorld extends World
      * Constructor for objects of class myWorld.
      * 
      */
-    public myWorld()
+    public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
@@ -27,7 +27,7 @@ public class myWorld extends World
      */
     private void prepare()
     {
-        elephant elephant = new elephant();
+        Elephant elephant = new Elephant();
         addObject(elephant,128,284);
         
         scoreLabel = new Label(0, 80);
@@ -49,7 +49,7 @@ public class myWorld extends World
     
     public void createApple()
     {
-        apple apple = new apple();
+        Apple apple = new Apple();
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(apple,x,y);
