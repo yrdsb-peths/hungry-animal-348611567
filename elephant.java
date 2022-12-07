@@ -60,7 +60,7 @@ public class Elephant extends Actor
         setLocation(x, y);
         
         eat();
-        //animateElephant();
+        animateElephant();
     }
     
     public void eat()
