@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class elephant extends Actor
+public class Elephant extends Actor
 {
     /**
      * Act - do whatever the elephant wants to do. This method is called whenever
@@ -15,9 +15,9 @@ public class elephant extends Actor
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idle = new GreenfootImage[8];
     
-    public elephant()
+    public Elephant()
     {
-        for(int i = 0; i <0; i++)
+        for(int i = 0; i < 8; i++)
         {
             idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
         }
@@ -60,15 +60,15 @@ public class elephant extends Actor
         setLocation(x, y);
         
         eat();
-        animateElephant();
+        //animateElephant();
     }
     
     public void eat()
     {
-        if(isTouching(apple.class))
+        if(isTouching(Apple.class))
         {
-            removeTouching(apple.class);
-            myWorld world = (myWorld) getWorld();
+            removeTouching(Apple.class);
+            MyWorld world = (MyWorld) getWorld();
             world.createApple();
             world.increaseScore();
             elephantSound.play();
