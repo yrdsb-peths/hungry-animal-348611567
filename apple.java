@@ -12,10 +12,15 @@ public class Apple extends Actor
      * Act - do whatever the apple wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    int speed = 1;
+    
     public void act()
     {
         // Add your action code here.
-        fall();
+        int x = getX();
+        int y = getY() + speed;
+        setLocation(x, y);
+        
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())
         {
@@ -24,12 +29,8 @@ public class Apple extends Actor
         }
     }
     
-    public void fall()
+    public void setSpeed(int spd)
     {
-        
-        int x = getX();
-        int y = getY();
-        y++;
-        setLocation(x, y);
+        speed = spd;
     }
 }
